@@ -89,7 +89,8 @@ const LoginPage = () => {
                 </div>
             </div>
            <div>
-            <TodoData/>
+           { user &&
+            <TodoData/>}
            </div>
         </div>
     );
