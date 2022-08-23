@@ -81,6 +81,28 @@ a {
   border-radius: 5px;
   cursor: pointer;
 }
+.todo-show{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.single-todo{
+  background-color: white;
+  margin: 10px;
+  border: 1px solid skyblue;
+  padding: 10px;
+  border-radius: 5px;
+}
+.delete-btn{
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(172, 25, 25);
+  color: white;
+  cursor: pointer;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
