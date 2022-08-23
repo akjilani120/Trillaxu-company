@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import TitleShow from "./TitleShow";
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import {signOut } from 'firebase/auth';
-import auth from "./Firebase/firebase.init";
+import auth, { db } from "./Firebase/firebase.init";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import TodoData from "./TodoData";
+import { addDoc, collection } from "firebase/firestore";
 
 const LoginPage = () => {
 
@@ -33,20 +34,27 @@ const LoginPage = () => {
     if (loading) {
         return <p>Loading...</p>;
     }
-    const hanldeSubmit =(e) =>{
+    const hanldeSubmit = async (e) =>{
         e.preventDefault()
        const name = e.target.name.value;
-       const phone = e.target.phone.value;
+       const number = e.target.phone.value;
        const address = e.target.address.value;
-       
-
+       const email = user.email
+       const totalData = {
+         name,
+        number, 
+         address ,
+         email
+       }
+       const colllectRef = collection(db , "todos")
+       const docRef = await addDoc(colllectRef, totalData)
+       alert(`TOdo with id ${docRef.id} is added successfully`)
     }
     return (
         <div className="login-body">
             <div className="login-header">
-                <div className="loging-btn-head">
-                    {
-                        user ?
+                <div className="loging-btn-head">                                     
+                       
                         <div className="input-data-sent">
                         <button className="logout-btn" onClick={logout}>Log Out</button>
                           <div className="form-body">
@@ -69,13 +77,12 @@ const LoginPage = () => {
                           </form>
 
                           </div>
-                    </div> :
+                    </div> 
                         <div>
                         <h2>Please Login</h2>
                         <button className="login-btn" onClick={hanleGoogle}>Google Login</button>
-                    </div>
-                    
-                    }
+                    </div>              
+                  
                 </div>
             </div>
            <div>

@@ -1,11 +1,13 @@
 import React from 'react';
 
-const TitleShow = () => {
-   
+const TitleShow = ({todo}) => {
+  const {name , email ,  number , address} = todo
     return (
-        <div>
-            
-        </div>
+        <tr>
+            <td>{name}</td>
+            <td>{email}</td>
+            <td>{number}</td>
+        </tr>
     );
 };
 

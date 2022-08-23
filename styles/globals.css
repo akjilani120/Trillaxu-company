@@ -16,8 +16,7 @@ a {
   box-sizing: border-box;
 }
 .login-body{
-  padding: 50px;
-  height: 100vh;
+  padding: 50px; 
   text-align: center;
   
 }
