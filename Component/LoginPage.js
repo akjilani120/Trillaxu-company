@@ -55,33 +55,36 @@ const LoginPage = () => {
             <div className="login-header">
                 <div className="loging-btn-head">                                     
                        
-                        <div className="input-data-sent">
-                        <button className="logout-btn" onClick={logout}>Log Out</button>
-                          <div className="form-body">
-                          <form onSubmit={hanldeSubmit}>
-                             <div>
-                                <p className="input-pera">Your Name</p>
-                                <input className="input-control" type="text" name="name"  required />
-                             </div>
-                             <div>
-                                <p className="input-pera">Your Phone Number</p>
-                                <input className="input-control" type="text" name="phone" required  />
-                             </div>
-                             <div>
-                                <p className="input-pera">Your Home Adress</p>
-                                <input className="input-control" type="text" name="address"  required />
-                             </div>
-                             <div className="submit-btn-header">
-                                <input className="submit-btn" type="submit" value="Submit Now" />
-                             </div>
-                          </form>
+                      {   user ?
+                          <div className="input-data-sent">
+                          <button className="logout-btn" onClick={logout}>Log Out</button>
+                            <div className="form-body">
+                            <form onSubmit={hanldeSubmit}>
+                               <div>
+                                  <p className="input-pera">Your Name</p>
+                                  <input className="input-control" type="text" name="name"  required />
+                               </div>
+                               <div>
+                                  <p className="input-pera">Your Phone Number</p>
+                                  <input className="input-control" type="text" name="phone" required  />
+                               </div>
+                               <div>
+                                  <p className="input-pera">Your Home Adress</p>
+                                  <input className="input-control" type="text" name="address"  required />
+                               </div>
+                               <div className="submit-btn-header">
+                                  <input className="submit-btn" type="submit" value="Submit Now" />
+                               </div>
+                            </form>
+  
+                            </div>
+                      </div> :
+                          <div>
+                          <h2>Please Login</h2>
+                          <button className="login-btn" onClick={hanleGoogle}>Google Login</button>
+                      </div>     
 
-                          </div>
-                    </div> 
-                        <div>
-                        <h2>Please Login</h2>
-                        <button className="login-btn" onClick={hanleGoogle}>Google Login</button>
-                    </div>              
+                      }          
                   
                 </div>
             </div>

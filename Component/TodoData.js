@@ -15,19 +15,9 @@ const TodoData = () => {
     console.log("todos app", todos)
     return (
         <div>
-            <table>
-                <tr>
-                    <th>Company</th>
-                    <th>Contact</th>
-                    <th>Country</th>
-                </tr>
-                 
-                <tbody>
-                    {
-                        todos.map(todo => <TitleShow todo={todo} key={todo.id}/>)
-                    }
-                </tbody>
-            </table>
+            {
+                todos.map(todo => <TitleShow todo={todo} key={todo.id}/>)
+            }
         </div>
     );
 };
