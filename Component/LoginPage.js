@@ -4,6 +4,7 @@ import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import {signOut } from 'firebase/auth';
 import auth from "./Firebase/firebase.init";
 import { useAuthState } from 'react-firebase-hooks/auth';
+import TodoData from "./TodoData";
 
 const LoginPage = () => {
 
@@ -20,7 +21,7 @@ const LoginPage = () => {
     }
     const logout = () => {
         signOut(auth);
-        alert("Are you went Log")
+        alert("Are you went Log out ?")
     };
     if (error) {
         return (
@@ -32,7 +33,14 @@ const LoginPage = () => {
     if (loading) {
         return <p>Loading...</p>;
     }
-    console.log("user data", luser)
+    const hanldeSubmit =(e) =>{
+        e.preventDefault()
+       const name = e.target.name.value;
+       const phone = e.target.phone.value;
+       const address = e.target.address.value;
+       
+
+    }
     return (
         <div className="login-body">
             <div className="login-header">
@@ -41,7 +49,26 @@ const LoginPage = () => {
                         user ?
                         <div className="input-data-sent">
                         <button className="logout-btn" onClick={logout}>Log Out</button>
-                        
+                          <div className="form-body">
+                          <form onSubmit={hanldeSubmit}>
+                             <div>
+                                <p className="input-pera">Your Name</p>
+                                <input className="input-control" type="text" name="name"  required />
+                             </div>
+                             <div>
+                                <p className="input-pera">Your Phone Number</p>
+                                <input className="input-control" type="text" name="phone" required  />
+                             </div>
+                             <div>
+                                <p className="input-pera">Your Home Adress</p>
+                                <input className="input-control" type="text" name="address"  required />
+                             </div>
+                             <div className="submit-btn-header">
+                                <input className="submit-btn" type="submit" value="Submit Now" />
+                             </div>
+                          </form>
+
+                          </div>
                     </div> :
                         <div>
                         <h2>Please Login</h2>
@@ -51,7 +78,9 @@ const LoginPage = () => {
                     }
                 </div>
             </div>
-
+           <div>
+            <TodoData/>
+           </div>
         </div>
     );
 };

@@ -38,14 +38,49 @@ a {
   
 }
 .loging-btn-head{
-  width: 30%;
+  width: 50%;
   background-color: white;
   padding: 30px;
   border-radius: 8px;
-  height: 200px;
+ 
 }
 .logout-btn{
   background-color: rgb(233, 171, 56);
+}
+.form-body{
+  text-align: left;
+}
+.input-pera{
+  margin-bottom: 3px;
+  color: rgb(7, 90, 122);
+  font-size: 18px;
+}
+.input-control{
+  width: 90%;
+  padding: 10px;
+  border: 1px solid skyblue;
+  border-radius: 5px;
+  font-size: 18px;
+}
+.input-control, .submit-btn:focus{
+  outline: none;
+}
+.submit-btn-header{
+  text-align: center;
+  
+}
+.submit-btn{
+  background-color: rgb(5, 31, 87);
+  padding: 13px ;
+  color: white;
+  font-size: 18px;
+  border: none;
+  margin: 20px auto;
+  width: 30%;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
 }
 @media (prefers-color-scheme: dark) {
   html {
